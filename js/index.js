@@ -34,4 +34,8 @@ function calculate() {
 
   document.getElementById("result").innerText =
     `Water Level: ${waterLevel} Units `;
+  drawGraph();
 }
+
+// water graph
+function drawGraph() {}

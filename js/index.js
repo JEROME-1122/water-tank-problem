@@ -10,14 +10,19 @@ function calculate() {
   //calculate the left max and right max for each element in the array
   let leftMaxNum = [];
   let rightMaxNum = [];
+
   leftMaxNum[0] = numbers[0];
+
+  let n = numbers.length;
+
   //calculate left max for each element in the array
-  for (let i = 1; i < numbers.length; i++) {
+  for (let i = 1; i < n; i++) {
     leftMaxNum[i] = Math.max(leftMaxNum[i - 1], numbers[i]);
   }
-  rightMaxNum[numbers.length - 1] = numbers[numbers.length - 1];
+
+  rightMaxNum[n - 1] = numbers[n - 1];
   //calculate right max for each element in the array
-  for (let i = numbers.length - 2; i >= 0; i--) {
+  for (let i = n - 2; i >= 0; i--) {
     rightMaxNum[i] = Math.max(rightMaxNum[i + 1], numbers[i]);
   }
 }

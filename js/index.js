@@ -34,8 +34,38 @@ function calculate() {
 
   document.getElementById("result").innerText =
     `Water Level: ${waterLevel} Units `;
-  drawGraph();
+  drawGraph(numbers, leftMaxNum, rightMaxNum);
 }
 
 // water graph
-function drawGraph() {}
+
+function drawGraph(numbers, leftMaxNum, rightMaxNum) {
+  let graph = document.getElementById("drawingResult");
+  graph.innerHTML = "";
+  let maxHeight = Math.max(...numbers);
+  for (let level = maxHeight; level > 0; level--) {
+    let row = document.createElement("div");
+    row.classList.add("graph-row");
+    row.className = "row";
+
+    for (let i = 0; i < numbers.length; i++) {
+      let cell = document.createElement("div");
+
+      cell.className = "cell";
+
+      let waterLevel = Math.min(leftMaxNum[i], rightMaxNum[i]);
+
+      if (numbers[i] >= level) {
+        cell.classList.add("block");
+      } else if (waterLevel >= level) {
+        cell.classList.add("water");
+      }
+
+      row.appendChild(cell);
+    }
+
+    graph.appendChild(row);
+  }
+}
+
+ 

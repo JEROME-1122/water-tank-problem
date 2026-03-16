@@ -1,0 +1,22 @@
+#drawingResult {
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+}
+
+.block {
+  background: black;
+}
+
+.water {
+  background: skyblue;
+}

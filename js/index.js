@@ -25,4 +25,13 @@ function calculate() {
   for (let i = n - 2; i >= 0; i--) {
     rightMaxNum[i] = Math.max(rightMaxNum[i + 1], numbers[i]);
   }
+  //calculate the water level for each element in the array
+  let waterLevel = 0;
+  for (let i = 0; i < n; i++) {
+    waterLevel += Math.min(leftMaxNum[i], rightMaxNum[i]) - numbers[i];
+  }
+  console.log(waterLevel);
+
+  document.getElementById("result").innerText =
+    `Water Level: ${waterLevel} Units `;
 }
